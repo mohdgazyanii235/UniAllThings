@@ -17,6 +17,10 @@ class Melody
 		this.noteArray[i] = note;
 	}
 
+	public int getLength() //made this function to easily get the lenght of a melody.
+	{
+		return this.noteArray.length;
+	}
 	public String toString()
 	{
 		String StringConcat = new String(this.noteArray);
