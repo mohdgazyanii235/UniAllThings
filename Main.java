@@ -1,16 +1,22 @@
-import java.util.Random;
+import java.util.Scanner;
 
 public class Main
 {
 	public static void main(String[] args)
 	{
-		Random rand = new Random();
-		char[] solutionArray = new char[5];
-		for(int i = 0; i < solutionArray.length; i++)
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter Melody: ");
+		String melodyString = scan.nextLine();
+		String[] melodyStringArray = melodyString.split(" ");
+		String melodyStringWithoutSpaces = "";
+		for(String note : melodyStringArray)
 		{
-			solutionArray[i] = (char)('A' + rand.nextInt(7));
+			melodyStringWithoutSpaces += note;
 		}
-		Melody solution = new Melody(solutionArray);
-		System.out.println(solution);
+		char[] melodyArray = melodyStringWithoutSpaces.toCharArray();
+		for(char i : melodyArray)
+		{
+			System.out.println(i);
+		}
 	}
 }
