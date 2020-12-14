@@ -1,20 +1,16 @@
+import java.util.Random;
+
 public class Main
 {
 	public static void main(String[] args)
 	{
-		char[] solutionChar = new char[] {'A','B','C','D', 'E'};
-		Melody solutionMelody = new Melody(solutionChar);
-		char[] suggestionChar = new char[] {'A','C','B','F','G'};
-		Melody suggestionMelody = new Melody(suggestionChar);
-		Suggestion suggestion = new Suggestion(solutionMelody, suggestionMelody);
-		
-//		System.out.println("Solution: " + solutionMelody);
-//		System.out.println("Suggestion: " + suggestionMelody);
-//
-//		System.out.println(suggestion);
-		System.out.println(solutionMelody.getNote(0));
-		System.out.println(suggestionMelody.getNote(0));
-		System.out.println(suggestionMelody.getNote(0) == solutionMelody.getNote(0));
+		Random rand = new Random();
+		char[] solutionArray = new char[5];
+		for(int i = 0; i < solutionArray.length; i++)
+		{
+			solutionArray[i] = (char)('A' + rand.nextInt(7));
+		}
+		Melody solution = new Melody(solutionArray);
+		System.out.println(solution);
 	}
-
 }

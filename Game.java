@@ -1,3 +1,5 @@
+import java.util.Random;
+
 class Game
 {
 	private SuggestionListNode newSuggestionListNode;
@@ -8,6 +10,17 @@ class Game
 		this.newSuggestionListNode = null;
 	}
 
+	public Game()
+	{
+		Random rand = new Random();
+		char[] solutionArray = new char[5];
+		for(int i = 0; i < solutionArray.length; i++)
+		{
+			solutionArray[i] = (char)('A' + rand.nextInt(7));
+		}
+		
+		this.solution = new Melody(solutionArray);
+	}
 	public boolean suggestMelody(Melody suggestion)
 	{
 		Suggestion newSuggestion = new Suggestion(suggestion, this.solution);
