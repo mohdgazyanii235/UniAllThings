@@ -8,6 +8,11 @@ class SuggestionListNode
 		this.suggestion = suggestion;
 		this.next = next;
 	}
+	public SuggestionListNode(Suggestion suggestion)
+	{
+		this.suggestion = suggestion;
+		this.next = null;
+	}
 
 	public Suggestion getSuggestion(){return suggestion;}
 	public SuggestionListNode getNext(){return next;}

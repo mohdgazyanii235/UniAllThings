@@ -21,11 +21,11 @@ class Game
 		
 		this.solution = new Melody(solutionArray);
 	}
+
 	public boolean suggestMelody(Melody suggestion)
 	{
 		Suggestion newSuggestion = new Suggestion(suggestion, this.solution);
 		this.newSuggestionListNode = new SuggestionListNode(newSuggestion, this.newSuggestionListNode); 
-		//Basically the newSuggestionListNode will always point to the latest suggestion.
 		return this.newSuggestionListNode.getSuggestion().isCorrect();
 	}
 
@@ -34,6 +34,9 @@ class Game
 		return this.newSuggestionListNode;
 	}
 
-	public Melody getSolution(){return this.solution;}
+	public Melody getSolution()
+	{
+		return this.solution;
+	}
 
 }

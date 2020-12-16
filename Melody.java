@@ -17,7 +17,7 @@ class Melody
 		this.noteArray[i] = note;
 	}
 
-	public int getLength() //made this function to easily get the lenght of a melody.
+	public int getLength() //made this function to easily get the lenght of a melody. (maybe change this later cuz all melody is 5 char long.)
 	{
 		return this.noteArray.length;
 	}
@@ -41,19 +41,24 @@ class Melody
 		}
 		return(counter);
 	}
-//	['A', 'A', 'B', 'B', 'C']   = tempNoteArray
-//	['A', 'C', 'B', 'B', 'B']   = other
   
 	public int getNumSameNoPosition(Melody other)
 	{
+		char[] tempCharArray = new char[other.getLength()];
+		for(int y = 0; y < other.getLength(); y++)
+		{
+			tempCharArray[y] = other.getNote(y);
+		}
+		Melody tempMelody = new Melody(tempCharArray);
+
 		int counter = 0;
 		for(int i = 0; i < this.noteArray.length; i++)
 		{
 			for(int x = 0; x < this.noteArray.length; x++)
 			{
-				if(this.noteArray[i] == other.getNote(x))
+				if(this.noteArray[i] == tempMelody.getNote(x))
 				{
-					other.setNote(x, 'Z');
+					tempMelody.setNote(x, 'Z'); 
 					counter = counter + 1;
 					break;
 				}
