@@ -17,10 +17,6 @@ class Melody
 		this.noteArray[i] = note;
 	}
 
-	public int getLength() // Function not needed but added it just cuz... 
-	{
-		return this.noteArray.length;
-	}
 	public String toString()
 	{
 		String StringConcat = new String(this.noteArray);
