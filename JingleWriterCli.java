@@ -4,20 +4,20 @@ public class JingleWriterCli
 {
 	private static Scanner scan = new Scanner(System.in);
 
-	// The melodyInput function is responsible for taking user input melody(as a string) and making "melody" out of it.
+	// The melodyInput function is responsible for taking user input melody(as a string) and making a "melody" out of it.
 	private static Melody melodyInput()
 	{
 		System.out.println("Enter melody:");
 		String melodyString = scan.nextLine();
 		char[] melodyArray = new char[5];
-		for(int i =0; i < melodyArray.length; i++)
+		for(int i = 0; i < melodyArray.length; i++)
 		{
 			melodyArray[i] = melodyString.charAt(i*2);
 		}
 		Melody suggestionMelody = new Melody(melodyArray);
 		return suggestionMelody;
 	}
-
+    
 	private static void historyPrinter(Game gameName)
 	{
 		System.out.println("History:");
@@ -36,18 +36,14 @@ public class JingleWriterCli
 
 	public static void playGame(Game game)
 	{
-		while(true)
+        boolean result = false;
+		while(result == false)
 		{
 			historyPrinter(game);
 			Melody suggestionMelody = melodyInput();
-			boolean result = game.suggestMelody(suggestionMelody);
-			
-			if(result == true)
-			{
-				System.out.println("Congratulations!");
-				break;
-			}
+			result = game.suggestMelody(suggestionMelody);
 		}
+		System.out.println("Congratulations!");
 	}
 	
 	public static void main(String[] args)

@@ -16,21 +16,21 @@ class Suggestion
 	
 	public int getNumCorrect()
 	{
-		return this.suggestion.getNumSamePosition(this.solution);
+		return this.getMelody().getNumSamePosition(this.solution);
 	}
 	
 	public int getNumOutOfOrder()
 	{
 		int correct = this.getNumCorrect();
-		int numSameNoPosition = this.suggestion.getNumSameNoPosition(this.solution);
+		int numSameNoPosition = this.getMelody().getNumSameNoPosition(this.solution);
 		return (numSameNoPosition - correct);
 	}
 
 	public boolean isCorrect()
 	{
-		for(int i = 0; i < this.solution.getLength(); i++)
+		for(int i = 0; i < 5; i++)
 		{
-			if(this.solution.getNote(i) != this.suggestion.getNote(i))
+			if(this.solution.getNote(i) != this.getMelody().getNote(i))
 			{
 				return false;
 			}

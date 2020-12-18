@@ -16,7 +16,7 @@ class Game
 		char[] solutionArray = new char[5];
 		for(int i = 0; i < solutionArray.length; i++)
 		{
-			solutionArray[i] = (char)('A' + rand.nextInt(7));
+			solutionArray[i] = (char)('A' + rand.nextInt(7)); // A + a random number till six. (0 will return A) & (6 will return G) 
 		}
 		
 		this.solution = new Melody(solutionArray);

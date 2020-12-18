@@ -14,7 +14,7 @@ class SuggestionListNode
 		this.next = null;
 	}
 
-	public Suggestion getSuggestion(){return suggestion;}
-	public SuggestionListNode getNext(){return next;}
+	public Suggestion getSuggestion(){return this.suggestion;}
+	public SuggestionListNode getNext(){return this.next;}
 }
 

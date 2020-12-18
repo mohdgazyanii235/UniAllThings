@@ -17,7 +17,7 @@ class Melody
 		this.noteArray[i] = note;
 	}
 
-	public int getLength() //made this function to easily get the lenght of a melody. (maybe change this later cuz all melody is 5 char long.)
+	public int getLength() // Function not needed but added it just cuz... 
 	{
 		return this.noteArray.length;
 	}
@@ -26,10 +26,8 @@ class Melody
 		String StringConcat = new String(this.noteArray);
 		return(StringConcat.replace("", " ").trim());
 	}
-
-	//Question 5 Scoring Starts from here:
 	
-	public int getNumSamePosition(Melody other)
+	public int getNumSamePosition(Melody other)   // This function will return notes that are positionally correct.
 	{
 		int counter = 0;
 		for(int i = 0; i < this.noteArray.length; i++)
@@ -42,25 +40,25 @@ class Melody
 		return(counter);
 	}
   
-	public int getNumSameNoPosition(Melody other)
+	public int getNumSameNoPosition(Melody other)    // This function will return notes that are correct but improperly positioned.
 	{
-		char[] tempCharArray = new char[other.getLength()];
-		for(int y = 0; y < other.getLength(); y++)
+		char[] tempSuggestionArray = new char[5];
+		for(int y = 0; y < 5; y++)
 		{
-			tempCharArray[y] = other.getNote(y);
+			tempSuggestionArray[y] = other.getNote(y);
 		}
-		Melody tempMelody = new Melody(tempCharArray);
+		Melody tempSuggestionMelody = new Melody(tempSuggestionArray);
 
 		int counter = 0;
 		for(int i = 0; i < this.noteArray.length; i++)
 		{
 			for(int x = 0; x < this.noteArray.length; x++)
 			{
-				if(this.noteArray[i] == tempMelody.getNote(x))
+				if(this.noteArray[i] == tempSuggestionMelody.getNote(x))
 				{
-					tempMelody.setNote(x, 'Z'); 
-					counter = counter + 1;
-					break;
+					tempSuggestionMelody.setNote(x, 'Z'); // If a certain duplicate is found in the solution, the duplicate in the 
+                    counter = counter + 1;                //temporarySuggestion Melody is changed to be 'Z', because Z cannot exist in the 
+                    break;                                //solution!
 				}
 			}
 		}
