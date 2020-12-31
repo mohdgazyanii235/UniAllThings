@@ -36,7 +36,6 @@ class Suggestion
 			}
 		}
 		return true;
-
 	}
 
 	public String toString()

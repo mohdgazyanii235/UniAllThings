@@ -51,10 +51,10 @@ class Melody
 			for(int x = 0; x < this.noteArray.length; x++)
 			{
 				if(this.noteArray[i] == tempSuggestionMelody.getNote(x))
-				{
-					tempSuggestionMelody.setNote(x, 'Z'); // If a certain duplicate is found in the solution, the duplicate in the 
-                    counter = counter + 1;                //temporarySuggestion Melody is changed to be 'Z', because Z cannot exist in the 
-                    break;                                //solution!
+				{   // Change overlapping note to 'Z' so when the loop runs again, that overlap is ignored.
+					tempSuggestionMelody.setNote(x, 'Z'); 
+                    counter = counter + 1;
+                    break;
 				}
 			}
 		}
